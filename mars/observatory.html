@@ -1,6 +1,6 @@
 <template name="logs_bootstrap">
     <div class="{{theme}}" id="lb_id_containing_box"><!-- theming support -->
-        <div id="id_logs_bootstrap" {{#if isDynamic}}class="observatory_panel {{height}}"{{else}}class="observatory_panel_static  {{#if isHidden}}lb_hidden{{/if}}"{{/if}}>
+        <div id="id_logs_bootstrap" class="observatory_panel {{height}}">
               {{#if fullFeatured}}
               <ul class="nav-tabs" id="lb_main_tab">
                     <li><a href="#" data-target="observatoryjsLogsTab" id="id_logs_tab_btn">Logs</a></li>
@@ -35,7 +35,7 @@
                 </div>
               {{/if}}
 
-        {{{observatoryjsRenderCurrent}}}
+        {{> observatoryjsLogsTab}}
         </div>
         <a class="observatory_trigger" href="#" id="btn_toggle_logs">O!</a>
         <a class="observatory_trigger" href="#" id="btn_toggle_session">S!</a>
@@ -80,7 +80,8 @@
                     </td>
                     <td class="lb_loglevel"><span class="label {{lb_loglevel_decoration}}">{{loglevel_names severity}}</span></td>
                     <td class="lb_message"><pre class=" {{lb_loglevel_msg_decoration}}">{{textMessage}}</pre></td>
-                    {{/each}}
+                </tr>
+                {{/each}}
                 </tbody>
             </table>
         </div>
